@@ -72,8 +72,11 @@ npx tsc -p functions/tsconfig.json                     # typecheck the API
 
 ## Deploy (maintainers)
 
-You need `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in your environment.
-Never commit them.
+Every push or merge to `main` deploys automatically through GitHub Actions
+(`.github/workflows/deploy.yml`). The Cloudflare credentials are stored as repository secrets.
+
+To deploy by hand, put `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in your environment
+(never commit them) and run:
 
 ```bash
 npm run build
