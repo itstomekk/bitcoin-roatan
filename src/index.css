@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Centralized Theme Colors - update src/data/themes.ts to change */
+    --theme-teal: 172 58% 39%;
+    --theme-teal-light: 172 45% 55%;
+    --theme-yellow: 43 89% 63%;
+    --theme-yellow-light: 43 85% 70%;
+    --theme-navy: 213 55% 23%;
+    --theme-navy-light: 213 45% 35%;
+    
+    /* Tropical Island Palette */
+    --sun-yellow: 43 89% 63%;
+    --teal-ocean: 172 58% 39%;
+    --teal-light: 172 45% 55%;
+    --soft-green: 120 25% 65%;
+    --deep-navy: 213 55% 23%;
+    --sand-cream: 45 67% 96%;
+    --coral-accent: 16 85% 65%;
+    
+    /* Base theme using tropical palette */
+    --background: 45 67% 96%;
+    --foreground: 213 55% 23%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 55% 23%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 55% 23%;
+
+    --primary: 172 58% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 89% 63%;
+    --secondary-foreground: 213 55% 23%;
+
+    --muted: 45 30% 90%;
+    --muted-foreground: 213 30% 45%;
+
+    --accent: 172 45% 55%;
+    --accent-foreground: 213 55% 23%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 213 20% 85%;
+    --input: 213 20% 85%;
+    --ring: 172 58% 39%;
+
+    --radius: 1rem;
+
+    /* Active theme - default to teal */
+    --theme-accent: var(--theme-teal);
+    --theme-accent-light: var(--theme-teal-light);
+
+    /* Gradients */
+    --gradient-teal: linear-gradient(135deg, hsl(var(--theme-teal)), hsl(var(--theme-teal-light)));
+    --gradient-yellow: linear-gradient(135deg, hsl(var(--theme-yellow)), hsl(var(--theme-yellow-light)));
+    --gradient-navy: linear-gradient(135deg, hsl(var(--theme-navy)), hsl(var(--theme-navy-light)));
+    --gradient-soft: linear-gradient(180deg, hsl(45 67% 96%), hsl(45 50% 92%));
+  }
+
+  .dark {
+    --background: 213 55% 12%;
+    --foreground: 45 67% 96%;
+
+    --card: 213 55% 16%;
+    --card-foreground: 45 67% 96%;
+
+    --popover: 213 55% 16%;
+    --popover-foreground: 45 67% 96%;
+
+    --primary: 172 58% 45%;
+    --primary-foreground: 213 55% 12%;
+
+    --secondary: 43 70% 55%;
+    --secondary-foreground: 213 55% 12%;
+
+    --muted: 213 40% 20%;
+    --muted-foreground: 45 30% 70%;
+
+    --accent: 172 45% 40%;
+    --accent-foreground: 45 67% 96%;
+
+    --border: 213 40% 25%;
+    --input: 213 40% 25%;
+    --ring: 172 58% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+  }
+
+  /* Scroll margin for anchor sections */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  /* Page transition animations */
+  .page-enter {
+    animation: pageEnter 0.35s ease-out forwards;
+  }
+
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Section highlight animation */
+  .section-highlight {
+    animation: sectionHighlight 1.2s ease-out;
+  }
+
+  @keyframes sectionHighlight {
+    0% {
+      background-color: hsl(var(--secondary) / 0.3);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-teal {
+    background: var(--gradient-teal);
+  }
+
+  .bg-gradient-yellow {
+    background: var(--gradient-yellow);
+  }
+
+  .bg-gradient-navy {
+    background: var(--gradient-navy);
+  }
+
+  .bg-gradient-soft {
+    background: var(--gradient-soft);
+  }
+
+  /* Bitcoin pattern background */
+  .bitcoin-pattern {
+    position: relative;
+  }
+  
+  .bitcoin-pattern::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ctext x='40' y='50' font-family='Arial' font-size='32' font-weight='bold' fill='%23000000' fill-opacity='0.03' text-anchor='middle'%3E₿%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Theme classes - these set the active accent color */
+  .theme-teal {
+    --theme-accent: var(--theme-teal);
+    --theme-accent-light: var(--theme-teal-light);
+  }
+  
+  .theme-yellow {
+    --theme-accent: var(--theme-yellow);
+    --theme-accent-light: var(--theme-yellow-light);
+  }
+  
+  .theme-navy {
+    --theme-accent: var(--theme-navy);
+    --theme-accent-light: var(--theme-navy-light);
+  }
+
+  /* Themed section headers */
+  .section-header {
+    border-left: 3px solid hsl(var(--theme-accent));
+    padding-left: 0.75rem;
+  }
+
+  /* Themed quick answer box */
+  .quick-box {
+    background-color: hsl(var(--theme-accent) / 0.08);
+    border: 1px solid hsl(var(--theme-accent) / 0.25);
+  }
+
+  .quick-box-title {
+    color: hsl(var(--theme-accent));
+  }
+
+  .quick-box-bullet {
+    color: hsl(var(--theme-accent));
+  }
+
+  /* Themed border */
+  .theme-border {
+    border-color: hsl(var(--theme-accent) / 0.3);
+  }
+
+  /* Sub-tile active state */
+  .sub-tile-active {
+    background-color: hsl(var(--theme-accent) / 0.15);
+    border-color: hsl(var(--theme-accent) / 0.4);
+  }
+}
+
+@layer utilities {
+  /* Touch-friendly tap targets */
+  .tap-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+@keyframes floatBtc {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.08;
+  }
+  90% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

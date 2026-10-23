@@ -1,0 +1,9 @@
+# Cloudflare Pages project: static Vite build + Pages Functions in ./functions
+name = "bitcoin-roatan"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bitcoin-roatan"
+database_id = "07ab8536-4ee5-4cbb-8b46-38f691665116"

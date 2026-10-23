@@ -1,0 +1,12 @@
+# Bitcoin Roatán
+
+> A neutral, practical guide to using Bitcoin on Roatán island, Honduras — merchants, ATMs, community, and resources. No hype, just facts.
+
+## Pages
+
+- [Home](/): Coming soon landing page with a curated marketplace of Bitcoin projects on the island.
+- [Hub](/hub): Main hub linking to all guide sections.
+- [Why Bitcoin](/why): Why Bitcoin matters and how it fits Roatán.
+- [Use Bitcoin](/use): Practical guide — wallets, ATMs, merchants, getting started.
+- [What's Up](/whatsup): Current events, community links, and what's happening now.
+- [About](/about): About the project and partners.
