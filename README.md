@@ -1,107 +1,86 @@
-# Bitcoin Roatán
+<div align="center">
 
-**Live site:** [bitcoinroatan.info](https://bitcoinroatan.info)
+<img src="src/assets/bitcoin-roatan-logo.png" alt="Bitcoin Roatán" width="140">
 
-Bitcoin Roatán is a neutral, practical guide to using Bitcoin on
-[Roatán](https://en.wikipedia.org/wiki/Roat%C3%A1n), an island off the north coast of Honduras.
-It is maintained by local organizations and volunteers, and it aims to be accurate and useful
-rather than promotional.
+# Bitcoin Roatán 🏝️🟠
 
-The site covers:
+**A neutral, practical guide to using Bitcoin on Roatán, Honduras**
 
-- **Use**: a live map of shops, restaurants, hotels and services that accept Bitcoin, plus ATMs,
-  places to get Bitcoin, and a getting-started checklist for wallets.
-- **Why**: why Bitcoin matters on the island.
-- **What's Up**: upcoming events and community links.
-- **About**: the project and its partners.
-- The site is in English and Spanish.
+Where to spend it, where to get it, and who to ask. In English and Spanish. ⚡
 
-## Where the data comes from
+[🌐 bitcoinroatan.info](https://bitcoinroatan.info) · [🗺️ The map](https://bitcoinroatan.info/use) · [🤔 Why Bitcoin](https://bitcoinroatan.info/why) · [📅 What's Up](https://bitcoinroatan.info/whatsup) · [💬 WhatsApp group](https://chat.whatsapp.com/FQ9Uu5WR6VOGgh5sPaSuFK)
 
-- **Merchant map**: [BTCMap](https://btcmap.org/map), a community map of Bitcoin-accepting places
-  built on [OpenStreetMap](https://www.openstreetmap.org). The site keeps a copy of every Roatán
-  place and pulls BTCMap changes automatically. To add or fix a place,
-  [edit it on BTCMap](https://btcmap.org/add-location) and the site picks the change up.
-- **Events**: the events listing on [Prospera.Place](https://prospera.place).
-- **ATMs, guides and texts**: `src/data/` and `src/contexts/LanguageContext.tsx` (EN + ES).
+<br>
 
-## Related links
+<a href="https://bitcoinroatan.info/use"><img src=".github/readme/use.jpg" alt="The Use page of bitcoinroatan.info: fast start steps, filters and a map of places that accept Bitcoin on Roatán" width="820"></a>
 
-- Community WhatsApp group: <https://chat.whatsapp.com/FQ9Uu5WR6VOGgh5sPaSuFK>
-- The Bitcoin District events: <https://thebitcoindistrict.com/events>
-- Bitcoin Center Roatán (AmityAge Academy): <https://www.amityage.com/bitcoin-center-roatan>
-- Blink wallet: <https://blink.sv>
-- Próspera: <https://prospera.co>
+</div>
 
-## How it works
+---
 
-```
-Browser ──> Cloudflare Pages ──> static site (Vite + React, built to dist/)
-                       └──> Pages Functions /api/*  ──> Cloudflare D1 (SQLite)
-                                       └── /api/sync-btcmap ──> BTCMap API
-```
+## 👋 Hello!
 
-- **Frontend**: Vite, React, TypeScript, Tailwind, shadcn/ui, Leaflet for the map.
-- **Backend**: three small [Pages Functions](https://developers.cloudflare.com/pages/functions/)
-  in `functions/api/`, with shared code in `server/lib.ts`.
-- **Database**: [Cloudflare D1](https://developers.cloudflare.com/d1/). The schema is in
-  `db/schema.sql`, with tables `places`, `email_subscribers` and `meta`. `meta.btcmap_cursor`
-  stores the sync position.
-- **Hosting**: Cloudflare Pages, project `bitcoin-roatan`. Test URL: <https://bitcoin-roatan.pages.dev>
+[Roatán](https://en.wikipedia.org/wiki/Roat%C3%A1n) is an island off the north coast of Honduras with a growing Bitcoin community. This site is the plain answer to "I'm on the island, how do I use Bitcoin here?"
 
-| Method | Path | What it does |
-|---|---|---|
-| GET | `/api/places` | List all places on the map (cached 5 min) |
-| POST | `/api/subscribe` | Body `{email}`: join the mailing list. 201 new, 200 `already:true`, 422 invalid |
-| POST | `/api/sync-btcmap` | Pull BTCMap changes since the last sync. Runs at most once per 30 minutes and is triggered when the map loads |
+It is maintained by local organizations and volunteers. The aim is to be accurate and useful, not promotional. No hype, just facts. 🧡
 
-The site was first built with [Lovable](https://lovable.dev). On 2026-10-23 it moved to this repo and
-Cloudflare, so that the code is open and the site no longer depends on the builder.
+This repository is the code of the site. If you are just visiting: **[open the guide](https://bitcoinroatan.info)**.
 
-## Run it locally
+## 🚦 Status
 
-You need Node.js 20+.
+**Live** at [bitcoinroatan.info](https://bitcoinroatan.info) (served from Cloudflare since 2026-10-26). The guide pages (Why, Use, What's Up, About) and the merchant map work today. The front page is still a "Coming soon" teaser with an email sign-up. At the last check the map listed 91 places.
 
-```bash
-npm install
-npm run dev                                            # frontend only, http://localhost:8080
-npx --yes wrangler@4 d1 execute bitcoin-roatan --local --file db/schema.sql   # create local tables once
-npm run build && npx --yes wrangler@4 pages dev dist   # frontend + API + local database
-npx tsc -p functions/tsconfig.json                     # typecheck the API
-```
+## 🧭 What is on the site
 
-## Deploy (maintainers)
+- 🗺️ **Use.** A map of shops, restaurants, hotels and services that accept Bitcoin, with search and filters. Also Bitcoin ATMs, places to get Bitcoin, and a getting-started checklist for wallets (Lightning wallets such as Blink, Muun and Phoenix).
+- 🤔 **Why.** Why Bitcoin matters on the island.
+- 📅 **What's Up.** Events, community channels and links.
+- ℹ️ **About.** The project and its partners.
+- 🌎 **English and Spanish.** One click to switch.
 
-Every push or merge to `main` deploys automatically through GitHub Actions
-(`.github/workflows/deploy.yml`). The Cloudflare credentials are stored as repository secrets.
+## 🔗 Where the data comes from
 
-To deploy by hand, put `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in your environment
-(never commit them) and run:
+- 🗺️ **Merchants:** [BTCMap](https://btcmap.org/map), a community map of Bitcoin-accepting places built on [OpenStreetMap](https://www.openstreetmap.org). The site keeps a copy of every Roatán place and pulls BTCMap changes automatically.
+- 📅 **Events:** a community events calendar, shown on the What's Up page.
+- 🏧 **ATMs, guides and texts:** written by hand in this repository, in English and Spanish.
 
-```bash
-npm run build
-npx --yes wrangler@4 pages deploy dist --project-name bitcoin-roatan --branch main
-npx --yes wrangler@4 d1 execute bitcoin-roatan --remote --file db/schema.sql -y   # schema changes only
-```
+## 🙌 How to help
 
-Subscriber emails are stored only in D1. They are never committed to this repo. Maintainers can
-export the list with:
+- 📍 **A place is missing, closed or wrong on the map?** [Add or fix it on BTCMap](https://btcmap.org/add-location) and the site picks the change up. That is the best fix for merchants.
+- ✍️ **A guide text, ATM detail or link is wrong?** [Open an issue](https://github.com/itstomekk/bitcoin-roatan/issues) or send a pull request. These corrections are the most useful.
+- 🌎 **Better Spanish?** Translation fixes are welcome. The texts live in `src/contexts/LanguageContext.tsx`.
+- 💬 **Live on the island or visiting?** Join the [community WhatsApp group](https://chat.whatsapp.com/FQ9Uu5WR6VOGgh5sPaSuFK) and say hi.
 
-```bash
-npx --yes wrangler@4 d1 execute bitcoin-roatan --remote --json --command "select email, created_at from email_subscribers order by created_at"
-```
+Build, API and deploy notes are in [DEVELOPMENT.md](DEVELOPMENT.md).
 
-## Known external dependency
+## 🤝 Related links
 
-`src/components/BitcoinEventsBox.tsx` reads events from Prospera.Place's current backend (Supabase)
-with its public read-only key. That key is designed to be public. It will point to the new events
-API once Prospera.Place moves too.
+- 💬 [Community WhatsApp group](https://chat.whatsapp.com/FQ9Uu5WR6VOGgh5sPaSuFK)
+- 📅 [The Bitcoin District events](https://thebitcoindistrict.com/events)
+- 🎓 [Bitcoin Center Roatán (AmityAge Academy)](https://www.amityage.com/bitcoin-center-roatan)
+- ⚡ [Blink wallet](https://blink.sv)
 
-## Contributing
-
-Issues and pull requests are welcome. Corrections to guide text, ATMs or links are the most
-useful. To change a merchant listing, edit it on [BTCMap](https://btcmap.org) instead.
-
-## License
+## 📜 License
 
 [MIT](LICENSE)
+
+---
+
+<details>
+<summary>🇪🇸 En español</summary>
+
+**Bitcoin Roatán** es una guía neutral y práctica para usar Bitcoin en [Roatán](https://es.wikipedia.org/wiki/Roat%C3%A1n), Honduras. La mantienen organizaciones locales y voluntarios, y busca ser precisa y útil, no promocional.
+
+🌐 **[Abrir la guía](https://bitcoinroatan.info)** (cambia a ES arriba a la derecha)
+
+**Estado:** en línea. Las páginas de la guía y el mapa de comercios funcionan; la página de inicio sigue siendo un aviso de "Próximamente" con registro de correo.
+
+**Cómo ayudar:** agrega o corrige comercios en [BTCMap](https://btcmap.org/add-location); si un texto, un cajero o un enlace está mal, [abre un issue](https://github.com/itstomekk/bitcoin-roatan/issues) o manda un pull request; y si estás en la isla, únete al [grupo de WhatsApp](https://chat.whatsapp.com/FQ9Uu5WR6VOGgh5sPaSuFK).
+
+</details>
+
+<div align="center">
+
+**Don't trust, verify.** ⚡ Hecho con 🧡 en Roatán.
+
+</div>
