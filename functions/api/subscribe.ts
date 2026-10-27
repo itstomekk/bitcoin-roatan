@@ -1,4 +1,5 @@
 import { json, type Env } from '../../server/lib';
+import { nostrDM } from '../../server/nostr';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -44,7 +45,12 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
     waitUntil(
       env.DB.prepare('SELECT COUNT(*) AS n FROM email_subscribers')
         .first<{ n: number }>()
-        .then((row) => notify(env, email, row?.n ?? 0))
+        .then((row) =>
+          Promise.all([
+            notify(env, email, row?.n ?? 0),
+            nostrDM(env, `New signup on bitcoinroatan.info: ${email} (subscribers now: ${row?.n ?? 0})`),
+          ]),
+        )
         .catch((e) => console.error('notify error', String(e))),
     );
   }

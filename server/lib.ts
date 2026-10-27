@@ -5,6 +5,10 @@ export interface Env {
   RESEND_API_KEY?: string;
   NOTIFY_TO?: string; // comma-separated recipients
   NOTIFY_FROM?: string; // e.g. "Bitcoin Roatán <notify@bitcoinroatan.info>"
+  // Optional: new-signup Nostr DM (Pages secrets). Bot key, not a personal key.
+  NOSTR_NOTIFY_SK_HEX?: string;
+  NOSTR_NOTIFY_TO_HEX?: string; // recipient pubkey, hex
+  NOSTR_RELAYS?: string; // comma-separated wss:// URLs
 }
 
 export const json = (body: unknown, status = 200, headers: Record<string, string> = {}) =>
