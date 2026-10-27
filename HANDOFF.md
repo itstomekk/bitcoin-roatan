@@ -11,6 +11,24 @@
   - 2 email subscribers, copied from Lovable.
 - Code repo: GitHub `itstomekk/bitcoin-roatan` (private).
 
+## DNS (2026-10-26)
+
+- Nameservers at the registry already point to Cloudflare (hunts/treasure.ns.cloudflare.com). The zone was stuck
+  `initializing` without a plan, so the domain (site + mail) did not resolve. Fixed by adding the Free plan via API;
+  the zone is `pending` and serving. 24 records (23 imported from smarthost.pl + GitHub Pages challenge TXT
+  `_github-pages-challenge-itstomekk`). Record backup: `C:\Users\Lenovo\.secrets\backups\bitcoinroatan-dns-2026-10-26.json`.
+- Apex and www: proxied CNAME -> `bitcoin-roatan.pages.dev` since 2026-10-26 (was Lovable A 185.158.133.1).
+  Zone `active`, Pages custom domains `active`. Mail stays on cPanel (91.211.221.253).
+
+## Cutover: DONE 2026-10-26
+
+- Lovable had 2 subscribers (last 2026-04-23), the same 2 already in D1, so nothing new to copy.
+- Live checks on bitcoinroatan.info: home 200 (same build as pages.dev, plus the Cloudflare Web Analytics beacon),
+  www 200, `/api/places` 91, `/use` map 91 markers on desktop and mobile with no console errors, `og-image.png` 200,
+  `/api/subscribe` 201/200/422 (test row deleted, count back to 2).
+- Lovable project left as is (not deleted). Its publish is no longer reachable on the domain; unpublish it from the
+  Lovable dashboard after 2 weeks if nothing breaks. Signups now land in D1 table `email_subscribers`.
+
 ## Verified
 
 - `/api/places` returns 91 places, and the map shows 91 markers on desktop and mobile.

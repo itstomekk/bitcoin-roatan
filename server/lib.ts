@@ -1,6 +1,10 @@
 // Shared helpers for Pages Functions.
 export interface Env {
   DB: D1Database;
+  // Optional: new-signup notification via Resend (Pages secret). Without it, signups still work.
+  RESEND_API_KEY?: string;
+  NOTIFY_TO?: string; // comma-separated recipients
+  NOTIFY_FROM?: string; // e.g. "Bitcoin Roatán <notify@bitcoinroatan.info>"
 }
 
 export const json = (body: unknown, status = 200, headers: Record<string, string> = {}) =>
