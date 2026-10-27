@@ -31,7 +31,10 @@ async function publish(relay: string, event: object, timeoutMs = 6000): Promise<
 }
 
 export async function nostrDM(env: Env, text: string): Promise<string[]> {
-  if (!env.NOSTR_NOTIFY_SK_HEX || !env.NOSTR_NOTIFY_TO_HEX) return [];
+  if (!env.NOSTR_NOTIFY_SK_HEX || !env.NOSTR_NOTIFY_TO_HEX) {
+    console.log('nostr dm skipped: missing', !env.NOSTR_NOTIFY_SK_HEX ? 'NOSTR_NOTIFY_SK_HEX' : 'NOSTR_NOTIFY_TO_HEX');
+    return [];
+  }
   const sk = hexToBytes(env.NOSTR_NOTIFY_SK_HEX);
   const to = env.NOSTR_NOTIFY_TO_HEX;
   const content = await nip04.encrypt(sk, to, text);

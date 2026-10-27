@@ -3,6 +3,10 @@ name = "bitcoin-roatan"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-10-01"
 
+# Plain vars live here: with a wrangler.toml, Pages drops dashboard plain-text vars on deploy (secrets survive).
+[vars]
+NOSTR_NOTIFY_TO_HEX = "ab8cb80e5e42a5c45fcf0a6c297e758b113a87daa5028b10b22b8adf5395d502" # Tomek's npub14wxts...: signup DMs
+
 [[d1_databases]]
 binding = "DB"
 database_name = "bitcoin-roatan"
