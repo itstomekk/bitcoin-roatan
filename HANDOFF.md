@@ -29,6 +29,16 @@
 - Lovable project left as is (not deleted). Its publish is no longer reachable on the domain; unpublish it from the
   Lovable dashboard after 2 weeks if nothing breaks. Signups now land in D1 table `email_subscribers`.
 
+## Signup notifications (2026-10-27)
+
+- Each NEW signup sends a Nostr DM (NIP-04, kind 4) to Tomek's npub14wxts... from a dedicated bot key
+  `npub1qs4gq29cmgmw8zwqym39x8nn72nd7mcxwq6awscjjq0tuc0splhse3tk6k` (`server/nostr.ts`), published to
+  relay.primal.net, nos.lol, relay.damus.io, relay.ditto.pub. Test DM `3bb417253bfb…` read back on primal, nos.lol, ditto.
+- Bot secret: Pages secret `NOSTR_NOTIFY_SK_HEX` (copy in `C:\Users\Lenovo\.secrets\bitcoinroatan-notify-nostr.env`).
+  Recipient: `[vars] NOSTR_NOTIFY_TO_HEX` in wrangler.toml. With a wrangler.toml, Pages drops dashboard plain-text vars
+  on every deploy; only secrets survive, so plain vars belong in the toml.
+- Email via Resend is coded but idle until `RESEND_API_KEY` + `NOTIFY_TO` secrets exist (no Resend account yet).
+
 ## Verified
 
 - `/api/places` returns 91 places, and the map shows 91 markers on desktop and mobile.
