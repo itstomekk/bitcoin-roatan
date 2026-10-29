@@ -57,6 +57,9 @@
 
 ## Known
 
+- `src/components/FeaturedEventBlock.tsx` holds one featured event (Bitcoin Whitepaper Day, 2026-10-31) shown on
+  `/`, `/hub` and `/whatsup`. It hides itself after `endsAt`; swap the `EVENT` object for the next one.
+
 - The "Next Bitcoin Event" box still reads from the Prospera.Place Supabase. Switch it when
   that project migrates.
 - Some events have an ISO timestamp in `event_time`, so the raw string shows in the box.
