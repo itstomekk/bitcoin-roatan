@@ -6,6 +6,7 @@ import logo from '@/assets/bitcoin-roatan-logo.png';
 import { MessageCircle } from 'lucide-react';
 import { Seo } from '@/components/Seo';
 import { BitcoinEventsBox } from '@/components/BitcoinEventsBox';
+import { FeaturedEventBlock } from '@/components/FeaturedEventBlock';
 
 const marketplaceLinks = [
   { name: 'Bitcoin Arena', desc: "The island's biggest gym — Bitcoin powered", url: 'https://maps.app.goo.gl/fupJRJCYShQ378Yr9', emoji: '🥊' },
@@ -170,6 +171,7 @@ const ComingSoon = () => {
             </Button>
           </form>
         </div>
+        <FeaturedEventBlock className="max-w-md mb-6" />
         <BitcoinEventsBox />
 
       </div>

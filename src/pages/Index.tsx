@@ -4,6 +4,7 @@ import { LanguageToggle } from '@/components/LanguageToggle';
 import { MovementSnapshot } from '@/components/MovementSnapshot';
 import { BTCMapEmbed } from '@/components/BTCMapEmbed';
 import { NowImportantBox } from '@/components/NowImportantBox';
+import { FeaturedEventBlock } from '@/components/FeaturedEventBlock';
 import { AboutLink } from '@/components/AboutLink';
 import { EmailSignup } from '@/components/EmailSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -39,6 +40,10 @@ const Index = () => {
         <NavigationTile to="/use" label={t('nav.use')} variant="yellow" size="large" />
         <NavigationTile to="/whatsup" label={t('nav.whatsup')} variant="navy" size="large" />
       </nav>
+
+      <section className="mb-10">
+        <FeaturedEventBlock />
+      </section>
 
       <section className="mb-8">
         <MovementSnapshot />

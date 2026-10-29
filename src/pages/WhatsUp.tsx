@@ -4,6 +4,7 @@ import { LanguageToggle } from '@/components/LanguageToggle';
 import { SubTile } from '@/components/SubTile';
 import { SectionHeader } from '@/components/SectionHeader';
 import { NowImportantBox } from '@/components/NowImportantBox';
+import { FeaturedEventBlock } from '@/components/FeaturedEventBlock';
 import { AboutLink } from '@/components/AboutLink';
 import { QuickNavTile } from '@/components/QuickNavTile';
 import { EventCard } from '@/components/EventCard';
@@ -50,6 +51,7 @@ const WhatsUp = () => {
       </nav>
 
       <section className="mb-10">
+        <FeaturedEventBlock className="mb-4" />
         <NowImportantBox />
       </section>
 
