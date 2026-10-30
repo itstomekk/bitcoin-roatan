@@ -59,11 +59,7 @@ const ComingSoon = () => {
 
   return (
     <div className="fixed inset-0 overflow-y-auto no-scrollbar">
-      <Seo
-        title="Bitcoin Roatán — The most Bitcoin island in the world"
-        description="A neutral, practical guide to Bitcoin on Roatán. Coming soon — meanwhile, explore the island's Bitcoin marketplace."
-        path="/"
-      />
+      <Seo page="home" />
       {/* Fixed background */}
       <div className="fixed inset-0 z-0">
         <iframe

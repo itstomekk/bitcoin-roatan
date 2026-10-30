@@ -9,11 +9,7 @@ const About = () => {
 
   return (
     <PageContainer>
-      <Seo
-        title="About Bitcoin Roatán — Mission & partners"
-        description="About the Bitcoin Roatán project: who we are, our mission, and the partners helping build Bitcoin on the island."
-        path="/about"
-      />
+      <Seo page="about" />
       <header className="flex justify-between items-center mb-6">
         <BackLink />
         <LanguageToggle />

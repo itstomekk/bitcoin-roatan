@@ -13,11 +13,7 @@ const Why = () => {
 
   return (
     <PageContainer>
-      <Seo
-        title="Why Bitcoin on Roatán — Sound money for the island"
-        description="Why Bitcoin matters for Roatán: monetary freedom, remittances, tourism, and the island's unique role."
-        path="/why"
-      />
+      <Seo page="why" />
       <header className="mb-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">

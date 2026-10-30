@@ -56,6 +56,7 @@ Build, API and deploy notes are in [DEVELOPMENT.md](DEVELOPMENT.md).
 ## 🤝 Related links
 
 - 💬 [Community WhatsApp group](https://chat.whatsapp.com/FQ9Uu5WR6VOGgh5sPaSuFK)
+- 🏘️ [Bitcoin District Próspera](https://thebitcoindistrict.com) (the Bitcoin ecosystem within Próspera)
 - 📅 [The Bitcoin District events](https://thebitcoindistrict.com/events)
 - 🎓 [Bitcoin Center Roatán (AmityAge Academy)](https://www.amityage.com/bitcoin-center-roatan)
 - ⚡ [Blink wallet](https://blink.sv)

@@ -69,6 +69,13 @@ export the list with:
 npx --yes wrangler@4 d1 execute bitcoin-roatan --remote --json --command "select email, created_at from email_subscribers order by created_at"
 ```
 
+## SEO and link previews
+
+- Titles, descriptions and paths for every route live in `src/data/seoPages.json`. `src/components/Seo.tsx` reads it for the live page, and `scripts/prerender.mjs` (runs after `vite build`) writes the same tags into static HTML: `dist/why.html`, `dist/use.html`, and so on. Crawlers that do not run JavaScript, such as link-preview bots, therefore see the right tags on each route.
+- The script also writes `dist/sitemap.xml` (lastmod = build date) and `dist/404.html`. With a `404.html`, Cloudflare Pages returns a real 404 for unknown URLs instead of serving the app with 200.
+- To add a page: add the route in `AnimatedRoutes.tsx`, an entry in `seoPages.json`, and `<Seo page="key" />` in the page.
+- Share image: `public/og-image.png`, 1200x630. When you replace it, bump `?v=` in `site.image` in `seoPages.json` so link previews refetch it.
+
 ## Known external dependency
 
 `src/components/BitcoinEventsBox.tsx` reads events from Prospera.Place's current backend (Supabase)

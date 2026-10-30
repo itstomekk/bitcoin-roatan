@@ -9,7 +9,7 @@
   - 91 places: the 80 from Lovable, 34 of them updated and 11 added from BTCMap changes
     since 2026-02-23. Lovable's own sync had stopped on 2026-02-23.
   - 2 email subscribers, copied from Lovable.
-- Code repo: GitHub `itstomekk/bitcoin-roatan` (private).
+- Code repo: GitHub `itstomekk/bitcoin-roatan` (public).
 
 ## DNS (2026-10-26)
 
@@ -38,6 +38,13 @@
   Recipient: `[vars] NOSTR_NOTIFY_TO_HEX` in wrangler.toml. With a wrangler.toml, Pages drops dashboard plain-text vars
   on every deploy; only secrets survive, so plain vars belong in the toml.
 - Email via Resend is coded but idle until `RESEND_API_KEY` + `NOTIFY_TO` secrets exist (no Resend account yet).
+
+## SEO and OG image (2026-10-30)
+
+- New 1200x630 `public/og-image.png` (the old one was a 1920x1695 page screenshot). Tags carry `?v=2`.
+- Per-route title, description, canonical and OG/Twitter tags are prerendered at build (`scripts/prerender.mjs`, data in `src/data/seoPages.json`). Sitemap is generated at build; unknown URLs now return a real 404. Details in DEVELOPMENT.md.
+- robots.txt cleaned (old Lovable rules dropped), llms.txt refreshed, Organization JSON-LD has a logo.
+- README related links: added Bitcoin District Próspera.
 
 ## Verified
 

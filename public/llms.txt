@@ -1,12 +1,17 @@
 # Bitcoin Roatán
 
-> A neutral, practical guide to using Bitcoin on Roatán island, Honduras — merchants, ATMs, community, and resources. No hype, just facts.
+> A neutral, practical guide to using Bitcoin on Roatán, Honduras: where to spend it, where to get it, and who to ask. English and Spanish. No hype, just facts.
 
 ## Pages
 
-- [Home](/): Coming soon landing page with a curated marketplace of Bitcoin projects on the island.
-- [Hub](/hub): Main hub linking to all guide sections.
-- [Why Bitcoin](/why): Why Bitcoin matters and how it fits Roatán.
-- [Use Bitcoin](/use): Practical guide — wallets, ATMs, merchants, getting started.
-- [What's Up](/whatsup): Current events, community links, and what's happening now.
-- [About](/about): About the project and partners.
+- [Home](https://bitcoinroatan.info/): Landing page with a curated list of Bitcoin projects on the island.
+- [Hub](https://bitcoinroatan.info/hub): Entry point to all guide sections.
+- [Why Bitcoin](https://bitcoinroatan.info/why): Why Bitcoin matters on Roatán.
+- [Use Bitcoin](https://bitcoinroatan.info/use): Merchant map, Bitcoin ATMs, wallets and a getting-started checklist.
+- [What's Up](https://bitcoinroatan.info/whatsup): Bitcoin events, meetups and community links.
+- [About](https://bitcoinroatan.info/about): The project and its partners.
+
+## Data and code
+
+- Merchant data comes from BTCMap (https://btcmap.org/map), a community map built on OpenStreetMap.
+- Source code (MIT): https://github.com/itstomekk/bitcoin-roatan

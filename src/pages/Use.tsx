@@ -17,11 +17,7 @@ const Use = () => {
 
   return (
     <PageContainer>
-      <Seo
-        title="Use Bitcoin on Roatán — Wallets, ATMs, and merchants"
-        description="Practical guide to using Bitcoin on Roatán: wallet picks, ATM locations, merchants, and a getting-started checklist."
-        path="/use"
-      />
+      <Seo page="use" />
       <header className="mb-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">

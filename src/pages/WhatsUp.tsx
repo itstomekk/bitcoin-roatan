@@ -20,11 +20,7 @@ const WhatsUp = () => {
 
   return (
     <PageContainer>
-      <Seo
-        title="What's Up on Roatán — Bitcoin events & community"
-        description="Current Bitcoin events, meetups, and community links on Roatán island."
-        path="/whatsup"
-      />
+      <Seo page="whatsup" />
       <header className="mb-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">

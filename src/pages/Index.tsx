@@ -17,11 +17,7 @@ const Index = () => {
 
   return (
     <PageContainer>
-      <Seo
-        title="Bitcoin Roatán Hub — Guide to Bitcoin on the Island"
-        description="Hub for using Bitcoin on Roatán: why it matters, how to use it, ATMs, merchants, and what's happening now."
-        path="/hub"
-      />
+      <Seo page="hub" />
       <header className="flex justify-end mb-6">
         <LanguageToggle />
       </header>
