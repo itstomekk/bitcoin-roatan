@@ -7,6 +7,7 @@ import { MessageCircle } from 'lucide-react';
 import { Seo } from '@/components/Seo';
 import { BitcoinEventsBox } from '@/components/BitcoinEventsBox';
 import { FeaturedEventBlock } from '@/components/FeaturedEventBlock';
+import { LazyIslandMap } from '@/components/LazyIslandMap';
 
 const marketplaceLinks = [
   { name: 'Bitcoin Arena', desc: "The island's biggest gym — Bitcoin powered", url: 'https://maps.app.goo.gl/fupJRJCYShQ378Yr9', emoji: '🥊' },
@@ -170,6 +171,20 @@ const ComingSoon = () => {
         <FeaturedEventBlock className="max-w-md mb-6" />
         <BitcoinEventsBox />
 
+        <a
+          href="#island-map"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('island-map')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="mt-8 text-sm text-[hsl(25,95%,70%)] hover:text-white transition-colors"
+        >
+          🗺️ Browse Bitcoin places on the island ↓
+        </a>
+      </div>
+
+      <div id="island-map">
+        <LazyIslandMap />
       </div>
 
 

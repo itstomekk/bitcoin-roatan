@@ -7,6 +7,8 @@ export default defineConfig(() => ({
   server: {
     host: "::",
     port: 8080,
+    // `npm run dev` has no Pages Functions; read-only data (places, events) comes from the live site.
+    proxy: { "/api": { target: "https://bitcoin-roatan.pages.dev", changeOrigin: true } },
   },
   plugins: [react()],
   resolve: {

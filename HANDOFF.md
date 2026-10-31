@@ -46,6 +46,17 @@
 - robots.txt cleaned (old Lovable rules dropped), llms.txt refreshed, Organization JSON-LD has a logo.
 - README related links: added Bitcoin District Próspera.
 
+## Island map on the landing page (2026-10-31)
+
+- `/` now ends with a full-width "Browse the island" section (`src/components/IslandMap.tsx`, lazy-loaded by `LazyIslandMap.tsx` when the visitor scrolls near it). Data is the D1 copy of BTCMap from `/api/places`; it also pings `/api/sync-btcmap`.
+- Browsing: search and type chips (with counts) float over the top of the map, area jump buttons sit above it, "Surprise me", an "in view" list sorted by distance, clustered pins, popups with website/directions/BTC Map links, Dark / Street / Satellite base maps.
+- Base maps are keyless: dark = OSM tiles with a CSS filter (CARTO dark tiles now return an "API KEY REQUIRED" tile), satellite = Esri World Imagery.
+- Wheel zoom turns on after a click in the map; on touch screens dragging is off until "Tap to move the map", so the page still scrolls.
+- `npm run dev` proxies `/api` to the live Pages site (read-only), so the map and events work locally.
+- Removed the Satoshi Saturday event (`src/data/events.ts` and its `events.satoshi.*` strings); it is no longer held.
+- New dependency: `leaflet.markercluster` (+ `@types/leaflet.markercluster`).
+- Tested in Firefox (desktop 1440 and mobile 390) against the live `/api/places`; build and eslint pass.
+
 ## Verified
 
 - `/api/places` returns 91 places, and the map shows 91 markers on desktop and mobile.

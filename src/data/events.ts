@@ -16,13 +16,6 @@ export const events: EventData[] = [
     schedule: 'weekly',
   },
   {
-    id: 'satoshi-saturday',
-    titleKey: 'events.satoshi.title',
-    descriptionKey: 'events.satoshi.desc',
-    detailKey: 'events.satoshi.detail',
-    schedule: 'monthly',
-  },
-  {
     id: 'bitchill-s02',
     titleKey: 'events.bitchill.title',
     descriptionKey: 'events.bitchill.desc',
