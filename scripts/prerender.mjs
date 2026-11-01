@@ -65,7 +65,7 @@ const today = new Date().toISOString().slice(0, 10);
 const urls = Object.values(seo.pages)
   .map(
     (p) =>
-      `  <url>\n    <loc>${origin}${p.path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`,
+      `  <url>\n    <loc>${origin}${p.path}</loc>\n    <lastmod>${p.lastmod || today}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`,
   )
   .join('\n');
 writeFileSync(

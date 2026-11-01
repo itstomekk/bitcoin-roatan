@@ -2,7 +2,7 @@
   "site": {
     "origin": "https://bitcoinroatan.info",
     "name": "Bitcoin Roatán",
-    "image": "/og-image.png?v=2",
+    "image": "/og-image.jpg?v=3",
     "imageWidth": 1200,
     "imageHeight": 630,
     "imageAlt": "Bitcoin Roatán: a neutral, practical guide to using Bitcoin on the island."
@@ -10,10 +10,11 @@
   "pages": {
     "home": {
       "path": "/",
-      "title": "Bitcoin Roatán | A Practical Guide to Bitcoin on the Island",
-      "description": "A neutral, practical guide to using Bitcoin on Roatán, Honduras. Find merchants and ATMs on the map, learn how to get started, and join the local community.",
+      "title": "Bitcoin Roatán | Bitcoin Merchants and Events on the Island",
+      "description": "Roatán, the most bitcoin island in the world. Browse an interactive map of 90+ places that accept Bitcoin, plus upcoming local Bitcoin events.",
       "priority": "1.0",
-      "changefreq": "weekly"
+      "changefreq": "weekly",
+      "lastmod": "2026-11-01"
     }
   }
 }

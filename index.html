@@ -15,16 +15,15 @@
     <!-- Open Graph -->
 
     <meta property="og:type" content="website" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:site_name" content="Bitcoin Roatán" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="es_HN" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Additional SEO -->
-    <meta name="keywords" content="Bitcoin, Roatán, Honduras, Lightning Network, cryptocurrency, merchants, ATM, travel" />
+    <meta name="keywords" content="Bitcoin, Roatán, Honduras, Lightning Network, merchants, BTC Map" />
     <meta name="geo.region" content="HN" />
     <meta name="geo.placename" content="Roatán" />
     
@@ -35,7 +34,7 @@
       }
     </style>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"WebSite","name":"Bitcoin Roatán","url":"https://bitcoinroatan.info/","description":"A neutral, practical guide to using Bitcoin on Roatán island.","inLanguage":["en","es"]}
+      {"@context":"https://schema.org","@type":"WebSite","name":"Bitcoin Roatán","url":"https://bitcoinroatan.info/","description":"Roatán, the most bitcoin island in the world. Interactive map of places that accept Bitcoin, plus local Bitcoin events.","inLanguage":"en"}
     </script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"Organization","name":"Bitcoin Roatán","url":"https://bitcoinroatan.info/","logo":"https://bitcoinroatan.info/favicon.png","areaServed":{"@type":"Place","name":"Roatán, Honduras"}}
@@ -44,6 +43,11 @@
 
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Bitcoin Roatán</h1>
+      <p>Roatán, the most bitcoin island in the world. This site shows an interactive map of 90+ places on Roatán, Honduras that accept Bitcoin (mostly Lightning), plus upcoming local Bitcoin events.</p>
+      <p>Enable JavaScript to use the map, or browse the same data on <a href="https://btcmap.org/map#16/16.3650/-86.4650">BTC Map</a>.</p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,3 +1,6 @@
+https://bitcoin-roatan.pages.dev/*
+  X-Robots-Tag: noindex
+
 /.well-known/lnurlp/*
   Content-Type: application/json; charset=utf-8
   Access-Control-Allow-Origin: *

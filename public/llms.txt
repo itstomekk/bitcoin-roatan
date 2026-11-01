@@ -1,10 +1,10 @@
 # Bitcoin Roatán
 
-> A neutral, practical guide to using Bitcoin on Roatán, Honduras: where to spend it, where to get it, and who to ask. English and Spanish. No hype, just facts.
+> Roatán, the most bitcoin island in the world. An interactive map of 90+ places on Roatán, Honduras that accept Bitcoin (mostly Lightning), plus upcoming local Bitcoin events. English only.
 
 ## Pages
 
-- [Home](https://bitcoinroatan.info/): Landing page with a curated list of Bitcoin projects on the island.
+- [Home](https://bitcoinroatan.info/): Landing page with the island map, merchant search by category, and upcoming events (single-page site).
 
 ## Data and code
 
