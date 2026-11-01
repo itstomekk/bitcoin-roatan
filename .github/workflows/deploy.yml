@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Weekly rebuild so the places JSON-LD (scripts/prerender.mjs) follows the BTCMap-synced list.
+    - cron: '17 6 * * 1'
 
 concurrency:
   group: deploy

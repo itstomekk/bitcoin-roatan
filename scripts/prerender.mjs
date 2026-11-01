@@ -38,10 +38,84 @@ function head({ title, description, path }) {
   ].join('\n    ');
 }
 
+
+// --- Places structured data -------------------------------------------------------------
+// Pulls the live BTCMap-synced list of places and writes it into the home page as JSON-LD
+// (ItemList of LocalBusiness subtypes) plus a crawlable <noscript> list. If the API is not
+// reachable the build still succeeds, just without this block.
+const PLACES_URL = process.env.PLACES_URL || 'https://bitcoin-roatan.pages.dev/api/places';
+const SCHEMA_TYPE = {
+  restaurant: 'Restaurant', cafe: 'CafeOrCoffeeShop', bar: 'BarOrPub', hotel: 'Hotel', shop: 'Store',
+  dive_centre: 'SportsActivityLocation', school: 'School', doctors: 'Physician', dentist: 'Dentist',
+  atm: 'AutomatedTeller', animal_shelter: 'AnimalShelter',
+};
+const DAYS = 'Mo|Tu|We|Th|Fr|Sa|Su';
+const HOURS_RE = new RegExp(`^(?:${DAYS})(?:-(?:${DAYS}))?(?:,(?:${DAYS})(?:-(?:${DAYS}))?)* \\d\\d:\\d\\d-\\d\\d:\\d\\d$`);
+const hoursOf = (h) => {
+  if (!h) return undefined;
+  if (h.trim() === '24/7') return 'Mo-Su 00:00-24:00';
+  const parts = h.split(';').map((x) => x.trim()).filter(Boolean);
+  return parts.length && parts.every((x) => HOURS_RE.test(x)) ? parts : undefined;
+};
+const jsonLd = (o) => JSON.stringify(o).replace(/</g, '\u003c');
+
+async function placesBlock() {
+  try {
+    const res = await fetch(PLACES_URL, { signal: AbortSignal.timeout(20000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const places = (await res.json()).places;
+    if (!Array.isArray(places) || places.length < 10) throw new Error('too few places');
+    const items = places.map((p, i) => {
+      const [kind, osmId] = String(p.id).split('-');
+      const pay = p.payment_onchain ? 'Bitcoin (Lightning Network and on-chain)' : 'Bitcoin (Lightning Network)';
+      const item = {
+        '@type': SCHEMA_TYPE[p.category] || 'LocalBusiness',
+        name: p.name,
+        address: {
+          '@type': 'PostalAddress',
+          ...(p.address ? { streetAddress: p.address } : {}),
+          addressLocality: 'Roatán',
+          addressRegion: 'Islas de la Bahía',
+          addressCountry: 'HN',
+        },
+        geo: { '@type': 'GeoCoordinates', latitude: p.lat, longitude: p.lng },
+        paymentAccepted: pay,
+        sameAs: `https://btcmap.org/merchant/${kind}:${osmId}`,
+      };
+      if (p.phone) item.telephone = p.phone;
+      if (p.website && /^https?:\/\//.test(p.website)) item.url = p.website;
+      const oh = hoursOf(p.opening_hours);
+      if (oh) item.openingHours = oh;
+      return { '@type': 'ListItem', position: i + 1, item };
+    });
+    const ld = `<script type="application/ld+json">${jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Places that accept Bitcoin on Roatán',
+      numberOfItems: items.length,
+      itemListElement: items,
+    })}</script>`;
+    const list = places
+      .map((p) => `<li>${esc(p.name)}${p.address ? ` (${esc(p.address)})` : ''}, ${esc(String(p.category).replace(/_/g, ' '))}</li>`)
+      .join('');
+    console.log(`prerender: ${places.length} places -> JSON-LD + noscript list`);
+    return { ld, list: `<h2>Places that accept Bitcoin on Roatán</h2><ul>${list}</ul>` };
+  } catch (e) {
+    console.warn(`prerender: places block skipped (${e.message})`);
+    return null;
+  }
+}
+const places = await placesBlock();
+
 const render = (block) => template.replace(MARKER, block);
 
 for (const [key, page] of Object.entries(seo.pages)) {
-  const html = render(head(page));
+  let html = render(head(page));
+  if (page.path === '/' && places) {
+    html = html.replace('</head>', `    ${places.ld}
+  </head>`).replace('</noscript>', `${places.list}
+    </noscript>`);
+  }
   if (page.path === '/') {
     writeFileSync(join(dist, 'index.html'), html);
   } else {
