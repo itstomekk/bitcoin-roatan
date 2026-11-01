@@ -21,12 +21,6 @@ const NotFound = () => {
           >
             Back to home
           </Link>
-          <Link
-            to="/hub"
-            className="px-5 py-2.5 rounded-md border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] text-white/85 font-semibold transition-colors"
-          >
-            Open the guide
-          </Link>
         </div>
       </div>
     </PageContainer>

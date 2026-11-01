@@ -55,7 +55,8 @@
 - `npm run dev` proxies `/api` to the live Pages site (read-only), so the map and events work locally.
 - Removed the Satoshi Saturday event (`src/data/events.ts` and its `events.satoshi.*` strings); it is no longer held.
 - `src/data/nowImportant.ts` trimmed to the Lightning line only (the Thursday meetup, ATM, merchants and Saturday workshop items were stale Lovable-era text).
-- Subpage design (2026-11-01): `PageContainer` now uses the same look as `/`: a still frame of the landing background video (`src/assets/roatan-bg.webp`) under the same dark brown/navy gradient, the logo on top, orange as the only accent, white-glass tiles and chips. `/use` map controls follow that too. The 404 page uses `PageContainer`. If the landing video changes, regenerate the still.
+- Subpages removed (2026-11-01, Tomek: only the landing page is used for now): `/hub`, `/why`, `/use`, `/whatsup`, `/about` now 301 to `/` via `public/_redirects`. Page files deleted (restore from git history, commit before 4435aeb's successor); their components (`MerchantMap`, `NavigationTile`, ...) are left in `src/components` unused. Only `/` is in `seoPages.json`, sitemap and `llms.txt`.
+- Subpage design (2026-11-01, superseded: subpages removed): `PageContainer` now uses the same look as `/`: a still frame of the landing background video (`src/assets/roatan-bg.webp`) under the same dark brown/navy gradient, the logo on top, orange as the only accent, white-glass tiles and chips. `/use` map controls follow that too. The 404 page uses `PageContainer`. If the landing video changes, regenerate the still.
 - `BitcoinEventsBox` hides any `.Place` listing named "Satoshi Saturday" (no longer held; the listing itself lives in the Prospera.Place Supabase).
 - New dependency: `leaflet.markercluster` (+ `@types/leaflet.markercluster`).
 - Tested in Firefox (desktop 1440 and mobile 390) against the live `/api/places`; build and eslint pass.

@@ -5,11 +5,6 @@
 ## Pages
 
 - [Home](https://bitcoinroatan.info/): Landing page with a curated list of Bitcoin projects on the island.
-- [Hub](https://bitcoinroatan.info/hub): Entry point to all guide sections.
-- [Why Bitcoin](https://bitcoinroatan.info/why): Why Bitcoin matters on Roatán.
-- [Use Bitcoin](https://bitcoinroatan.info/use): Merchant map, Bitcoin ATMs, wallets and a getting-started checklist.
-- [What's Up](https://bitcoinroatan.info/whatsup): Bitcoin events, meetups and community links.
-- [About](https://bitcoinroatan.info/about): The project and its partners.
 
 ## Data and code
 
