@@ -54,6 +54,7 @@
 - Wheel zoom turns on after a click in the map; on touch screens dragging is off until "Tap to move the map", so the page still scrolls.
 - `npm run dev` proxies `/api` to the live Pages site (read-only), so the map and events work locally.
 - Removed the Satoshi Saturday event (`src/data/events.ts` and its `events.satoshi.*` strings); it is no longer held.
+- `src/data/nowImportant.ts` trimmed to the Lightning line only (the Thursday meetup, ATM, merchants and Saturday workshop items were stale Lovable-era text).
 - New dependency: `leaflet.markercluster` (+ `@types/leaflet.markercluster`).
 - Tested in Firefox (desktop 1440 and mobile 390) against the live `/api/places`; build and eslint pass.
 
