@@ -7,7 +7,7 @@ export function BackLink() {
   return (
     <Link 
       to="/hub" 
-      className="inline-flex items-center text-sm font-medium text-[hsl(210,40%,65%)] hover:text-white transition-colors tap-target"
+      className="inline-flex items-center whitespace-nowrap text-sm font-medium text-[hsl(210,40%,65%)] hover:text-white transition-colors tap-target"
     >
       {t('nav.back')}
     </Link>

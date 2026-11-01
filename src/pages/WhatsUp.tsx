@@ -34,7 +34,7 @@ const WhatsUp = () => {
         </div>
       </header>
 
-      <div className="mb-6 pb-4 border-b border-[hsl(213,55%,40%,0.4)]">
+      <div className="mb-6 pb-4 border-b border-[hsl(25,95%,55%,0.35)]">
         <h1 className="text-2xl sm:text-3xl font-bold text-white">
           {t('whatsup.title')}
         </h1>

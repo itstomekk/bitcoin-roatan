@@ -164,12 +164,12 @@ export function MerchantMap() {
     <div className="space-y-3">
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/70" />
         <Input
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder={language === 'es' ? 'Buscar negocio...' : 'Search business...'}
-          className="pl-9 h-9 text-sm"
+          className="pl-9 h-9 text-sm bg-white/10 border-white/30 text-white placeholder:text-white/70 focus-visible:ring-[hsl(25,95%,55%)]"
         />
       </div>
 
@@ -181,8 +181,8 @@ export function MerchantMap() {
             onClick={() => setSelectedCategory(cat.key)}
             className={`text-xs px-2.5 py-1.5 rounded-full border transition-colors flex items-center gap-1 ${
               selectedCategory === cat.key
-                ? 'bg-primary text-primary-foreground border-primary'
-                : 'bg-card border-border text-foreground hover:bg-muted'
+                ? 'bg-[hsl(25,95%,55%)] text-white border-[hsl(25,95%,55%)]'
+                : 'bg-white/[0.06] border-white/15 text-white/85 hover:bg-white/[0.12]'
             }`}
           >
             <span>{cat.icon}</span>
@@ -196,7 +196,7 @@ export function MerchantMap() {
         <button
           onClick={() => setPaymentFilter('all')}
           className={`text-xs px-2.5 py-1.5 rounded-full border transition-colors ${
-            paymentFilter === 'all' ? 'bg-primary text-primary-foreground border-primary' : 'bg-card border-border text-foreground hover:bg-muted'
+            paymentFilter === 'all' ? 'bg-[hsl(25,95%,55%)] text-white border-[hsl(25,95%,55%)]' : 'bg-white/[0.06] border-white/15 text-white/85 hover:bg-white/[0.12]'
           }`}
         >
           {language === 'es' ? 'Todos' : 'All'}
@@ -204,7 +204,7 @@ export function MerchantMap() {
         <button
           onClick={() => setPaymentFilter('lightning')}
           className={`text-xs px-2.5 py-1.5 rounded-full border transition-colors flex items-center gap-1 ${
-            paymentFilter === 'lightning' ? 'bg-primary text-primary-foreground border-primary' : 'bg-card border-border text-foreground hover:bg-muted'
+            paymentFilter === 'lightning' ? 'bg-[hsl(25,95%,55%)] text-white border-[hsl(25,95%,55%)]' : 'bg-white/[0.06] border-white/15 text-white/85 hover:bg-white/[0.12]'
           }`}
         >
           <Zap className="w-3 h-3" /> Lightning
@@ -212,7 +212,7 @@ export function MerchantMap() {
         <button
           onClick={() => setPaymentFilter('onchain')}
           className={`text-xs px-2.5 py-1.5 rounded-full border transition-colors flex items-center gap-1 ${
-            paymentFilter === 'onchain' ? 'bg-primary text-primary-foreground border-primary' : 'bg-card border-border text-foreground hover:bg-muted'
+            paymentFilter === 'onchain' ? 'bg-[hsl(25,95%,55%)] text-white border-[hsl(25,95%,55%)]' : 'bg-white/[0.06] border-white/15 text-white/85 hover:bg-white/[0.12]'
           }`}
         >
           <Link className="w-3 h-3" /> On-chain
@@ -221,7 +221,7 @@ export function MerchantMap() {
         <button
           onClick={syncPlaces}
           disabled={syncing}
-          className="text-xs px-2 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center gap-1"
+          className="text-xs px-2 py-1.5 rounded-full border border-white/15 text-white/70 hover:text-white hover:bg-white/[0.12] transition-colors flex items-center gap-1"
         >
           <RefreshCw className={`w-3 h-3 ${syncing ? 'animate-spin' : ''}`} />
         </button>
@@ -230,15 +230,15 @@ export function MerchantMap() {
       {/* Map */}
       <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-20 relative">
         {loading && (
-          <div className="absolute inset-0 z-[1000] bg-background/60 flex items-center justify-center">
-            <RefreshCw className="w-6 h-6 animate-spin text-primary" />
+          <div className="absolute inset-0 z-[1000] bg-black/40 flex items-center justify-center">
+            <RefreshCw className="w-6 h-6 animate-spin text-[hsl(25,95%,60%)]" />
           </div>
         )}
         <div ref={mapContainerRef} style={{ height: '520px', width: '100%' }} />
       </div>
 
       {/* Count */}
-      <p className="text-xs text-muted-foreground">
+      <p className="text-xs text-white/60">
         {filtered.length} {language === 'es' ? 'lugares encontrados' : 'places found'}
         {places.length !== filtered.length && ` (${places.length} ${language === 'es' ? 'total' : 'total'})`}
       </p>

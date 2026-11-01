@@ -76,6 +76,8 @@ export function BitcoinEventsBox() {
       .then((r) => r.json())
       .then((data: PlaceEvent[]) => {
         if (!Array.isArray(data)) return setEvent(null);
+        // Satoshi Saturdays are no longer held; the .Place listing still exists, so hide it here.
+        data = data.filter((e) => !/satoshi\s+saturday/i.test(e.name));
         // Dedupe by normalized name key, prefer dated over recurring
         const seen = new Map<string, PlaceEvent>();
         for (const e of data) {

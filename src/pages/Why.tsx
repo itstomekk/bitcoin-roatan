@@ -27,7 +27,7 @@ const Why = () => {
         </div>
       </header>
 
-      <div className="mb-6 pb-4 border-b border-[hsl(172,58%,39%,0.3)]">
+      <div className="mb-6 pb-4 border-b border-[hsl(25,95%,55%,0.35)]">
         <h1 className="text-2xl sm:text-3xl font-bold text-white">
           {t('why.title')}
         </h1>
@@ -38,25 +38,25 @@ const Why = () => {
         <SubTile targetId="why-guide" label={t('why.sub.guide')} />
       </nav>
 
-      <section className="mb-8 p-4 rounded-xl bg-[hsl(172,58%,39%,0.08)] border border-[hsl(172,58%,39%,0.2)]">
-        <h3 className="text-sm font-semibold text-[hsl(172,45%,60%)] mb-3">
+      <section className="mb-8 p-4 rounded-xl bg-[hsl(25,95%,55%,0.08)] border border-[hsl(25,95%,55%,0.25)]">
+        <h3 className="text-sm font-semibold text-[hsl(25,95%,70%)] mb-3">
           {t('why.quick.title')}
         </h3>
         <ul className="space-y-2 text-sm text-[hsl(210,40%,80%)]">
           <li className="flex items-start gap-2">
-            <span className="text-[hsl(172,45%,60%)] mt-0.5">•</span>
+            <span className="text-[hsl(25,95%,70%)] mt-0.5">•</span>
             <span>{t('why.quick.merchants')}</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-[hsl(172,45%,60%)] mt-0.5">•</span>
+            <span className="text-[hsl(25,95%,70%)] mt-0.5">•</span>
             <span>{t('why.quick.infrastructure')}</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-[hsl(172,45%,60%)] mt-0.5">•</span>
+            <span className="text-[hsl(25,95%,70%)] mt-0.5">•</span>
             <span>{t('why.quick.prospera')}</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-[hsl(172,45%,60%)] mt-0.5">•</span>
+            <span className="text-[hsl(25,95%,70%)] mt-0.5">•</span>
             <span>{t('why.quick.culture')}</span>
           </li>
         </ul>

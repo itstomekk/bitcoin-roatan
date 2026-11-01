@@ -8,9 +8,9 @@ interface NavigationTileProps {
 }
 
 const variantClasses = {
-  teal: 'bg-[hsl(172,58%,39%,0.25)] border-[hsl(172,58%,39%,0.4)] text-[hsl(172,45%,70%)] hover:bg-[hsl(172,58%,39%,0.35)]',
+  teal: 'bg-white/[0.06] border-white/15 text-white/85 hover:bg-white/[0.12] hover:border-[hsl(25,95%,55%,0.4)]',
   yellow: 'bg-[hsl(25,95%,55%,0.2)] border-[hsl(25,95%,55%,0.4)] text-[hsl(25,95%,70%)] hover:bg-[hsl(25,95%,55%,0.3)]',
-  navy: 'bg-[hsl(213,55%,30%,0.3)] border-[hsl(213,55%,50%,0.4)] text-[hsl(210,40%,75%)] hover:bg-[hsl(213,55%,30%,0.4)]',
+  navy: 'bg-white/[0.06] border-white/15 text-white/85 hover:bg-white/[0.12] hover:border-[hsl(25,95%,55%,0.4)]',
 };
 
 const sizeClasses = {

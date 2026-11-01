@@ -1,5 +1,6 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { PageContainer } from "@/components/PageContainer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -9,15 +10,26 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
+    <PageContainer>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center">
+        <h1 className="text-6xl font-bold text-white mb-2">404</h1>
+        <p className="text-lg text-[hsl(210,40%,75%)] font-light mb-6">This page does not exist on the island.</p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <Link
+            to="/"
+            className="px-5 py-2.5 rounded-md bg-[hsl(25,95%,55%)] hover:bg-[hsl(25,95%,45%)] text-white font-semibold transition-colors"
+          >
+            Back to home
+          </Link>
+          <Link
+            to="/hub"
+            className="px-5 py-2.5 rounded-md border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] text-white/85 font-semibold transition-colors"
+          >
+            Open the guide
+          </Link>
+        </div>
       </div>
-    </div>
+    </PageContainer>
   );
 };
 
